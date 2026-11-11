@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://playwright-mastery-academy-app.vercel.app/practice/sandbox-basic');
+  await page.getByText('Clicks + Hover').click();
+  await page.getByText('Inputs + Form').click();
+  await page.getByText('Static Waits + Keyboard').click();
+  await page.getByText('Text Extraction', { exact: true }).click();
+  await page.getByTestId('single-click-btn').click();
+  await page.getByTestId('double-click-btn').click();
+  await page.getByTestId('hover-btn').click();
+  await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Home', exact: true }).click();
+  await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Curriculum' }).click();
+  await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Testimonials' }).click();
+  await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Practice' }).click();
+  await page.goto('https://playwright-mastery-academy-app.vercel.app/curriculum');
+  await page.goto('https://playwright-mastery-academy-app.vercel.app/');
+  await page.goto('https://playwright-mastery-academy-app.vercel.app/practice/sandbox-advanced');
+  await page.goto('https://playwright-mastery-academy-app.vercel.app/practice/sandbox-basic');
+  await page.getByText('API module item hidden-api').click();
+  await page.getByText('API module item hidden-api').dblclick();
+  await page.getByTestId('tooltip-trigger-btn').click();
+  await page.getByTestId('static-practice-select').selectOption('Easy');
+  await page.getByTestId('name-input').click();
+  await page.getByTestId('email-input').click();
+  await page.getByText('TrackSelect trackPlaywright').click();
+  await page.getByText('Form not submitted.').click();
+  await page.locator('section').filter({ hasText: 'Click, Double Click, Hover,' }).click();
+  await page.locator('section').filter({ hasText: 'Click, Double Click, Hover,' }).click();
+});
